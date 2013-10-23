@@ -1,0 +1,35 @@
+<div class="navigation">
+    <div class="month">
+        <div class="caret-left" {{action prevMonth target="view"}}>
+            {{svg "icons/caret-left"}}
+        </div>
+        {{view.monthName}}
+        <div class="caret-right" {{action nextMonth target="view"}}>
+            {{svg "icons/caret-right"}}
+        </div>
+    </div>
+    
+    <div class="year">
+        <div class="caret-left" {{action prevYear target="view"}}>
+            {{svg "icons/caret-left"}}
+        </div>
+        {{view.year}}
+        <div class="caret-right" {{action nextYear target="view"}}>
+            {{svg "icons/caret-right"}}
+        </div>
+    </div>
+</div>
+
+<div class="header-days">
+    {{#each char in view.weekdays}}
+        <div class="cell">{{char}}</div>
+    {{/each}}
+    <div class="clear"></div>
+</div>
+
+<div class="days">
+    {{#each day in view.monthDays}}
+        {{view view.optionView dayBinding="day" dateSelectorBinding="view"}}
+    {{/each}}
+    <div class="clear"></div>
+</div>

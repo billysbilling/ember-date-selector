@@ -1,0 +1,100 @@
+@mixin date-selector {
+    .popover.date-selector {
+        $border-color: #ccc;
+        $cell-size: 26px;
+    
+        @include unselectable;
+        padding: 0;
+        line-height: $cell-size;
+        font-size: 14px;
+    
+        .navigation {
+            $year-width: 70px;
+            $caret-size: 10px;
+            $caret-padding: 5px;
+            
+            position: relative;
+            height: $cell-size;
+            border-bottom: 1px solid $border-color;
+    
+            .month, .year {
+                position: absolute;
+                top: 0;
+                text-align: center;
+                height: $cell-size;
+            }
+            
+            .month {
+                right: $year-width;
+                left: 0;
+                border-right: 1px solid $border-color;
+            }
+    
+            .year {
+                right: 0;
+                width: $year-width;
+            }
+            
+            .caret-left, .caret-right {
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                padding: 0 $caret-padding;
+                width: $caret-size + 2*$caret-padding;
+                height: $cell-size;
+                
+                .svg-main {
+                    fill: $font-color;
+                }
+                
+                &:hover {
+                    .svg-main {
+                        fill: $blue;
+                    }
+                }
+            }
+    
+            .caret-left {
+                left: 0;
+            }
+    
+            .caret-right {
+                right: 0;
+            }
+        }
+        
+        .cell {
+            width: $cell-size;
+            height: $cell-size;
+            float: left;
+            text-align: center;
+            border: 1px solid transparent;
+            line-height: $cell-size - 2px;
+        }
+        
+        .header-days {
+            padding: 0 5px;
+        }
+        
+        .days {
+            padding: 0 5px 5px 5px;
+            
+            .cell {
+                cursor: pointer;
+    
+                &.other-month {
+                    color: $blue-gray-light;
+                }
+    
+                &.today {
+                    color: $blue;
+                }
+    
+                &.is-highlighted {
+                    border: 1px solid $blue;
+                    @include border-radius($cell-size);
+                }
+            }
+        }
+    }
+}
