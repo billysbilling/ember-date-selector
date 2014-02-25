@@ -42,6 +42,11 @@
                 padding: 0 $caret-padding;
                 width: $caret-size + 2*$caret-padding;
                 height: $cell-size;
+
+                svg {
+                    height: $cell-size;
+                    width: $caret-size;
+                }
                 
                 .svg-main {
                     fill: $font-color;
