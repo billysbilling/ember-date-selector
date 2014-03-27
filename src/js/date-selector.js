@@ -1,3 +1,5 @@
+var functionProxy = require('function-proxy');
+
 module.exports = require('ember-popover').extend({
     template: require('../templates/date-selector'),
     
@@ -31,13 +33,13 @@ module.exports = require('ember-popover').extend({
     didInsertElement: function() {
         this._super();
         var keyEl = this.get('keyEl') || this.$();
-        keyEl.on('keydown', Billy.proxy(this.keyDown, this));
+        keyEl.on('keydown', functionProxy(this.keyDown, this));
     },
 
     willDestroyElement: function() {
         this._super();
         var keyEl = this.get('keyEl') || this.$();
-        keyEl.off('keydown', Billy.proxy(this.keyDown, this));
+        keyEl.off('keydown', functionProxy(this.keyDown, this));
     },
 
     keyDown: function(e) {
