@@ -34,12 +34,20 @@ module.exports = require('ember-popover').extend({
         this._super();
         var keyEl = this.get('keyEl') || this.$();
         keyEl.on('keydown', functionProxy(this.keyDown, this));
+
+        //Prevent defocus when clicking option
+        this.$().on('mousedown', functionProxy(this._preventDefaultEvent, this));
     },
 
     willDestroyElement: function() {
         this._super();
         var keyEl = this.get('keyEl') || this.$();
         keyEl.off('keydown', functionProxy(this.keyDown, this));
+        this.$().off('mousedown', functionProxy(this._preventDefaultEvent, this));
+    },
+
+    _preventDefaultEvent: function(e) {
+        e.preventDefault();
     },
 
     keyDown: function(e) {
