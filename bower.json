@@ -1,6 +1,6 @@
 {
   "name": "ember-date-selector",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://github.com/billysbilling/ember-date-selector",
   "main": "src/js/date-selector.js",
   "billy-builder": {
