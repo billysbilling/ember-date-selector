@@ -1,5 +1,5 @@
 module.exports = Ember.View.extend({
-    template: require('../templates/option'),
+    layout: require('../templates/option'),
 
     classNameBindings: [':cell', 'day.isOtherMonth:other-month', 'day.isToday:today', 'isHighlighted'],
 

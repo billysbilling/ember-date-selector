@@ -1,10 +1,13 @@
-var functionProxy = require('function-proxy');
+var functionProxy = require('function-proxy'),
+    Popover = require('ember-popover');
 
-module.exports = require('ember-popover').extend({
+module.exports = Popover.extend({
+    layout: Popover.proto().layout,
+
     template: require('../templates/date-selector'),
-    
+
     classNames: ['date-selector'],
-    
+
     optionView: require('./option-view'),
 
     matchWidth: false,
@@ -14,7 +17,7 @@ module.exports = require('ember-popover').extend({
     maxWidth: 26*7+2*5,
 
     value: null,
-    
+
     monthDate: null,
 
     highlightedDate: null,
@@ -23,7 +26,7 @@ module.exports = require('ember-popover').extend({
         this.set('monthDate', moment());
         this.set('highlightedDate', moment());
     }.on('init'),
-    
+
     valueDidChange: function() {
         var value = this.get('value');
         this.set('monthDate', value);
@@ -152,12 +155,12 @@ module.exports = require('ember-popover').extend({
             self.set(name, moment(self.get(name)).add(unit, delta));
         });
     },
-    
+
     actions: {
         prevMonth: function() {
             this.move('month', -1);
         },
-        
+
         nextMonth: function() {
             this.move('month', 1);
         },

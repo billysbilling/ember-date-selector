@@ -1,20 +1,20 @@
 <div class="navigation">
     <div class="month">
-        <div class="caret-left" {{action prevMonth target="view"}}>
+        <div class="caret-left" {{action 'prevMonth' target="view"}}>
             {{svg "icons/caret-left"}}
         </div>
         {{view.monthName}}
-        <div class="caret-right" {{action nextMonth target="view"}}>
+        <div class="caret-right" {{action 'nextMonth' target="view"}}>
             {{svg "icons/caret-right"}}
         </div>
     </div>
     
     <div class="year">
-        <div class="caret-left" {{action prevYear target="view"}}>
+        <div class="caret-left" {{action 'prevYear' target="view"}}>
             {{svg "icons/caret-left"}}
         </div>
         {{view.year}}
-        <div class="caret-right" {{action nextYear target="view"}}>
+        <div class="caret-right" {{action 'nextYear' target="view"}}>
             {{svg "icons/caret-right"}}
         </div>
     </div>
